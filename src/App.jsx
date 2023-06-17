@@ -1,38 +1,84 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Main from './components/main';
 import Layout from './components/layout';
 import AppleIcon from './components/icons/apple';
 import GoogleIcon from './components/icons/google';
 import FacebookIcon from './components/icons/facebook';
+import PlusIcon from './components/icons/plus';
+import MinusIcon from './components/icons/minus';
 
 import './App.css';
 import Button from './components/buttonGroup/button';
 
 function App() {
   const [title] = useState('Đây là trang APP nè');
-  
+  const [count, setCount] = useState(10);
+
+  const [loadingStatus, setLoadingStatus] = useState('.')
+  const [loop, setLoop] = useState()
+  useEffect(() => {
+    setLoop(setInterval(() => {
+        console.log("loading")
+        setLoadingStatus(loadingStatus + ".")
+    }, 1000))
+
+    return function cleanup() {
+        console.log('cleaning up')
+        clearInterval(loop)
+    }
+}, [])
+
   return (
     <div className="App">
       <Layout title={title}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <Button 
-            icon={<AppleIcon />}
-            title="Continue with Apple"
+      <p>
+        {`Loading ${loadingStatus}`}
+    </p>
+        {/* <button onClick={() => setCount(count + 10)}> Count click</button> */}
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            margin: '30px',
+          }}
+        >
+          <Button
+            icon={<MinusIcon />}
+            title="Trừ"
+            buttonClass="button_secondary"
+            iconClass="icon_secondary"
+            titleClass="title_secondary"
+            count={count}
+            onClick={() => setCount(count - 1)}
           />
 
-          <Button 
-            icon={<GoogleIcon />}
-            title="Continue with Google"
+          <Button
+            icon={<PlusIcon />}
+            title="Cộng"
+            count={count}
+            onClick={() => setCount(count + 1)}
           />
 
-          <Button 
+          <Button
+            icon={<PlusIcon />}
+            title="Nhân đôi"
+            count={count}
+            onClick={() => setCount(count * 2)}
+          />
+
+          <Button icon={<AppleIcon />} title="Continue with Apple" />
+
+          <Button icon={<GoogleIcon />} title="Continue with Google" />
+
+          <Button
             icon={<FacebookIcon />}
             title="Continue with Facebook"
             buttonClass="button_secondary"
             iconClass="icon_secondary"
             titleClass="title_secondary"
           />
-
         </div>
         <Main />
       </Layout>
