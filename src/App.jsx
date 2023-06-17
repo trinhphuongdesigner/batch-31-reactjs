@@ -33,8 +33,6 @@ function App() {
             titleClass="title_secondary"
           />
 
-          <Button />
-
         </div>
         <Main />
       </Layout>
