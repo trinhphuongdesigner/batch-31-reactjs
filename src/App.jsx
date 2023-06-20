@@ -55,8 +55,11 @@ function App() {
           />
 
           <Button
-            icon={<PlusIcon />}
             title="Nhân đôi"
+            icon={<i class="fa-solid fa-xmark fa-2xl"></i>}
+            buttonClass="button_secondary"
+            iconClass="icon_secondary"
+            titleClass="title_secondary"
             count={count}
             onClick={() => setCount(count * 2)}
           />
