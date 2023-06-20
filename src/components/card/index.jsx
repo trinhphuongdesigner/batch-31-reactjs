@@ -30,12 +30,15 @@ function Card(props) {
 
       <div className="card-body">
         <h5 className="shop_name">{shopName}</h5>
+        <div className="break-line"/>
 
-        <p className="new_price">${newPrice}</p>
+        <div className="price-wrapper">
+          <p className="new_price">${newPrice}</p>
 
-        <p className="old_price">${oldPrice}</p>
+          <p className="old_price">${oldPrice}</p>
 
-        <p className="discount">{discount}% off</p>
+          <p className="discount">{discount}% off</p>
+        </div>
 
         <p className="product_name">{productName}</p>
 
