@@ -1,39 +1,49 @@
-import { useEffect, useRef, useState } from 'react';
-import Main from './components/main';
-import Layout from './components/layout';
+import { useEffect, useState } from 'react';
+
 import AppleIcon from './components/icons/apple';
-import GoogleIcon from './components/icons/google';
+import Button from './components/buttonGroup/button';
 import FacebookIcon from './components/icons/facebook';
-import PlusIcon from './components/icons/plus';
+import GoogleIcon from './components/icons/google';
+import Layout from './components/layout';
+import Main from './components/main';
 import MinusIcon from './components/icons/minus';
+import PlusIcon from './components/icons/plus';
+import CardList from './components/cardList';
+
+import productList from './fakeData/MOCK_DATA.json';
 
 import './App.css';
-import Button from './components/buttonGroup/button';
+
 
 function App() {
   const [title] = useState('Đây là trang APP nè');
   const [count, setCount] = useState(10);
+  const [products, setProducts] = useState([]);
 
-  const [loadingStatus, setLoadingStatus] = useState('.')
-  const [loop, setLoop] = useState()
+  const [loadingStatus, setLoadingStatus] = useState('.');
+  const [loop, setLoop] = useState();
   useEffect(() => {
-    setLoop(setInterval(() => {
-        console.log("loading")
-        setLoadingStatus(loadingStatus + ".")
-    }, 1000))
+    setLoop(
+      setInterval(() => {
+        console.log('loading');
+        setLoadingStatus(loadingStatus + '.');
+      }, 1000),
+    );
 
     return function cleanup() {
-        console.log('cleaning up')
-        clearInterval(loop)
-    }
-}, [])
+      console.log('cleaning up');
+      clearInterval(loop);
+    };
+  }, []);
+
+  useEffect(() => {
+  setProducts(productList)
+  }, []);
 
   return (
     <div className="App">
       <Layout title={title}>
-      <p>
-        {`Loading ${loadingStatus}`}
-    </p>
+        <p>{`Loading ${loadingStatus}`}</p>
         {/* <button onClick={() => setCount(count + 10)}> Count click</button> */}
 
         <div
@@ -79,6 +89,8 @@ function App() {
             iconClass="icon_secondary"
             titleClass="title_secondary"
           />
+
+          <CardList list={products} />
         </div>
         <Main />
       </Layout>
