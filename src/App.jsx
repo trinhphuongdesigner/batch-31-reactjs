@@ -20,22 +20,6 @@ function App() {
   const [count, setCount] = useState(10);
   const [products, setProducts] = useState([]);
 
-  const [loadingStatus, setLoadingStatus] = useState('.');
-  const [loop, setLoop] = useState();
-  useEffect(() => {
-    setLoop(
-      setInterval(() => {
-        console.log('loading');
-        setLoadingStatus(loadingStatus + '.');
-      }, 1000),
-    );
-
-    return function cleanup() {
-      console.log('cleaning up');
-      clearInterval(loop);
-    };
-  }, []);
-
   useEffect(() => {
   setProducts(productList)
   }, []);
@@ -43,7 +27,6 @@ function App() {
   return (
     <div className="App">
       <Layout title={title}>
-        <p>{`Loading ${loadingStatus}`}</p>
         {/* <button onClick={() => setCount(count + 10)}> Count click</button> */}
 
         <div

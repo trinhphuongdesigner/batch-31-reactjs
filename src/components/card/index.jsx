@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StarIcon from '../icons/star';
+import { formatter, ratingStar } from '../../helper';
 
 import './card.css';
 
@@ -18,6 +18,9 @@ function Card(props) {
     stock,
     sold,
   } = props;
+
+
+
   return (
     <div className="card">
       <span className="discounted">
@@ -33,9 +36,9 @@ function Card(props) {
         <div className="break-line"/>
 
         <div className="price-wrapper">
-          <p className="new_price">${newPrice}</p>
+          <p className="new_price">{formatter.format(newPrice)}</p>
 
-          <p className="old_price">${oldPrice}</p>
+          <p className="old_price">{formatter.format(oldPrice)}</p>
 
           <p className="discount">{discount}% off</p>
         </div>
@@ -43,11 +46,7 @@ function Card(props) {
         <p className="product_name">{productName}</p>
 
         <div className="product_rate">
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
+          {ratingStar(rate)}
         </div>
 
         <progress className="product_progress" value={sold} max={stock} />
