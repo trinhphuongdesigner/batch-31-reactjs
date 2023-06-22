@@ -39,3 +39,8 @@ inherit - initial - unset
 Độ ưu tiên của css selector
 
 style inline, internal css, external css
+
+useMemo
+useCallback
+useRef
+useForwardFef

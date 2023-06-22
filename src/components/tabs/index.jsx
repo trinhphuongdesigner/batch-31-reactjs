@@ -34,42 +34,11 @@ const tabs = [
 
 function Tabs(props) {
   const [currentTab, setCurrentTab] = useState(TAB.HISTORY);
-  // const [isActive1, setIsActive1] = useState(true);
-  // const [isActive2, setIsActive2] = useState(false);
-  // const [isActive3, setIsActive3] = useState(false);
-  // const [isActive4, setIsActive4] = useState(false);
-
-  // const onActive1 = () => {
-  //   setIsActive1(true);
-  //   setIsActive2(false);
-  //   setIsActive3(false);
-  //   setIsActive4(false);
-  // }
-  // const onActive2 = () => {
-  //   setIsActive1(false);
-  //   setIsActive2(true);
-  //   setIsActive3(false);
-  //   setIsActive4(false);
-  // }
-  // const onActive3 = () => {
-  //   setIsActive1(false);
-  //   setIsActive2(false);
-  //   setIsActive3(true);
-  //   setIsActive4(false);
-  // }
-  // const onActive4 = () => {
-  //   setIsActive1(false);
-  //   setIsActive2(false);
-  //   setIsActive3(false);
-  //   setIsActive4(true);
-  // }
-
+  
   const onSelectTab = (event) => {
     setCurrentTab(event.target.value);
   };
 
-  // useMemo
-  // useCallback
   const displayContent = useMemo(() => {
     const description = tabs.find((t) => t.name === currentTab).description;
     return description;
@@ -93,10 +62,6 @@ function Tabs(props) {
             </button>
           );
         })}
-        {/* <div className={`${styles.tabItem} ${isActive1 ? styles.tabActive : ''}`} onClick={onActive1}>{TAB.HISTORY}</div>
-        <div className={`${styles.tabItem} ${isActive2 ? styles.tabActive : ''}`} onClick={onActive2}>{TAB.APPROACH}</div>
-        <div className={`${styles.tabItem} ${isActive3 ? styles.tabActive : ''}`} onClick={onActive3}>{TAB.CULTURE}</div>
-        <div className={`${styles.tabItem} ${isActive4 ? styles.tabActive : ''}`} onClick={onActive4}>{TAB.METHOD}</div> */}
       </div>
 
       <p className={styles.description}>{displayContent}</p>
