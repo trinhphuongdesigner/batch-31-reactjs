@@ -27,3 +27,15 @@ Next picture
 Active tab
 
 https://dev.to/themodernweb/how-to-create-music-player-with-pure-html-css-js-c1j
+
+yarn add node-sass
+
+SCSS - SASS
+
+BEM - cách đặt tên class
+
+inherit - initial - unset
+
+Độ ưu tiên của css selector
+
+style inline, internal css, external css

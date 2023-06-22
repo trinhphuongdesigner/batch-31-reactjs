@@ -5,12 +5,13 @@ import Button from './components/buttonGroup/button';
 import CardList from './components/cardList';
 import FacebookIcon from './components/icons/facebook';
 import GoogleIcon from './components/icons/google';
+import ImageSlider from './components/imageSlider';
 import Layout from './components/layout';
 import Main from './components/main';
 import MinusIcon from './components/icons/minus';
 import Music from './components/music';
 import PlusIcon from './components/icons/plus';
-import ImageSlider from './components/imageSlider';
+import Tabs from './components/tabs';
 
 import productList from './fakeData/MOCK_DATA.json';
 import imageList from './fakeData/image.json';
@@ -82,6 +83,8 @@ function App() {
           <Music />
 
           <ImageSlider imageList={imageList} />
+
+          <Tabs />
 
           <CardList list={products} />
         </div>
