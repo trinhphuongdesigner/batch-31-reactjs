@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 
-import AppleIcon from './components/icons/apple';
-import Button from './components/buttonGroup/button';
-import CardList from './components/cardList';
-import FacebookIcon from './components/icons/facebook';
-import GoogleIcon from './components/icons/google';
-import ImageSlider from './components/imageSlider';
-import Layout from './components/layout';
-import Main from './components/main';
-import MinusIcon from './components/icons/minus';
-// import Music from './components/music';
-import MusicRaw from './components/playList/musicPlay';
-import PlusIcon from './components/icons/plus';
-import Tabs from './components/tabs';
-import PlayList from './components/playList';
+// import Music from 'components/music';
+import AppleIcon from 'components/icons/apple';
+import Button from 'components/buttonGroup/button';
+import CardList from 'components/cardList';
+import FacebookIcon from 'components/icons/facebook';
+import Form from 'components/Form';
+import GoogleIcon from 'components/icons/google';
+import ImageSlider from 'components/imageSlider';
+import Layout from 'components/layout';
+import Main from 'components/main';
+import MinusIcon from 'components/icons/minus';
+import MusicRaw from 'components/playList/musicPlay';
+import PlayList from 'components/playList';
+import PlusIcon from 'components/icons/plus';
+import Tabs from 'components/tabs';
 
-import productList from './fakeData/MOCK_DATA.json';
-import imageList from './fakeData/image.json';
+import productList from 'fakeData/MOCK_DATA.json';
+import imageList from 'fakeData/image.json';
 
 import './App.css';
-
 
 function App() {
   const [title] = useState('Đây là trang APP nè');
@@ -27,7 +27,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-  setProducts(productList)
+    setProducts(productList);
   }, []);
 
   return (
@@ -43,6 +43,8 @@ function App() {
             margin: '30px',
           }}
         >
+          
+          <Form />
 
           <PlayList />
 
