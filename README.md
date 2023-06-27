@@ -44,3 +44,7 @@ useMemo
 useCallback
 useRef
 useForwardFef
+
+dynamic import
+lazy loading
+code spliting
