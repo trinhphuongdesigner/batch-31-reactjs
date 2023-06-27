@@ -32,6 +32,7 @@
   border-radius: 4px;
   justify-content: space-between;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 /* .play-item:nth-child(n - 1) {

@@ -1,9 +1,68 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import MusicPlay from 'components/playList/musicPlay';
 
 import './playList.css';
 
+const playList = [
+  {
+    id: 1,
+    name: 'ChimSau',
+    cover: require('assets/image/music/1.jpg'),
+    src: require('assets/music/ChimSau-MCKTrungTran-7205660.mp3'),
+    artist: 'NF Real music',
+    isLiked: false,
+  },
+  {
+    id: 2,
+    name: 'coaycuaanhay',
+    cover: require('assets/image/music/2.jpg'),
+    src: require('assets/music/coaycuaanhay.mp3'),
+    artist: 'NF Real 2',
+    isLiked: false,
+  },
+  {
+    id: 3,
+    name: 'DontCoi',
+    cover: require('assets/image/music/3.jpg'),
+    src: require('assets/music/DontCoi-RPTOrijinnRonboogz-8345160.mp3'),
+    artist: 'NF Real 3',
+    isLiked: false,
+  },
+  {
+    id: 4,
+    name: 'KiaBongDangAi',
+    cover: require('assets/image/music/4.jpg'),
+    src: require('assets/music/KiaBongDangAi-Phao-8544353.mp3'),
+    artist: 'NF Real 4',
+    isLiked: false,
+  },
+  {
+    id: 5,
+    name: 'LuonYeuDoi',
+    cover: require('assets/image/music/5.jpg'),
+    src: require('assets/music/LuonYeuDoi-Den-8692742.mp3'),
+    artist: 'NF Real 5',
+    isLiked: false,
+  },
+  {
+    id: 6,
+    name: 'YeuAnhDiMeAnhBanBanhMi',
+    cover: require('assets/image/music/6.jpg'),
+    src: require('assets/music/YeuAnhDiMeAnhBanBanhMi-PhucDu-8698703.mp3'),
+    artist: 'NF Real 6',
+    isLiked: false,
+  },
+]
+
 function PlayList(props) {
+  const [selectedMusic, setSelectedMusic] = useState(playList[0]);
+
+  const onHandleSelectedMusic = useCallback((id) => () => {
+    const selected = playList.find((m) => m.id === id);
+
+    setSelectedMusic(selected);
+  }, []);
+
   return (
     <div className="music-space">
       <div className="music-list">
@@ -12,164 +71,46 @@ function PlayList(props) {
         <div className="list-sub">92 songs</div>
 
         <div className="play-list">
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">01</span>
+          {
+            playList.length > 0 ? playList.map((m, idx) => (
+              <div className="play-item" key={m.name}>
+              <button className="play-block" onClick={onHandleSelectedMusic(m.id)}>
+                <span className="index text-strong">{idx + 1}</span>
+  
+                <img
+                  src={m.cover}
+                  alt="My Stress"
+                  className="thumbnail"
+                />
 
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
+                {
+                  selectedMusic?.id === m.id
+                    ? <i className="fa-solid fa-volume-high play-icon"></i>
+                    : <i className="fa-solid fa-play play-icon"></i>
+                }
 
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">02</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">03</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">04</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">05</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">06</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
-
-          <div className="play-item">
-            <span className="play-block">
-              <span className="index text-strong">07</span>
-
-              <img
-                src="https://plus.unsplash.com/premium_photo-1677560517139-1836389bf843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                alt="My Stress"
-                className="thumbnail"
-              />
-
-              <i className="fa-solid fa-play play-icon"></i>
-
-              <span className="music-name text-strong">My Stress</span>
-            </span>
-
-            <span className="play-author">NF Real music</span>
-
-            <span className="timer">3:22</span>
-
-            <i className="fa-solid fa-heart icon-like"></i>
-          </div>
+                <span className="music-name text-strong" >{m.name}</span>
+              </button>
+  
+              <span className="play-author">{m.artist}</span>
+  
+              <span className="timer">3:22</span>
+  
+              <i className={`fa-solid fa-heart ${m.isLike ? 'icon-like' : ''}`}></i>
+            </div>
+            )) : <p>Không có bài hát trong danh sách</p>
+          }
         </div>
       </div>
 
       <div className="music-playing">
-        <MusicPlay />
+        <MusicPlay
+          name={selectedMusic.name}
+          artist={selectedMusic.artist}
+          cover={selectedMusic.cover}
+          id={selectedMusic.id}
+          src={selectedMusic.src}
+        />
       </div>
     </div>
   );
