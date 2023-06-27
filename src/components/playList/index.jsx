@@ -1,9 +1,9 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import MusicPlay from 'components/playList/musicPlay';
 
 import './playList.css';
 
-const playList = [
+const allList = [
   {
     id: 1,
     name: 'ChimSau',
@@ -55,13 +55,18 @@ const playList = [
 ]
 
 function PlayList(props) {
-  const [selectedMusic, setSelectedMusic] = useState(playList[0]);
+  const [selectedMusic, setSelectedMusic] = useState(allList[0]);
+  const [playList, setPlayList] = useState();
+
+  useEffect(() => {
+    setPlayList(allList.filter((m) => m.id !== selectedMusic.id));
+  }, [selectedMusic.id]);
 
   const onHandleSelectedMusic = useCallback((id) => () => {
     const selected = playList.find((m) => m.id === id);
 
     setSelectedMusic(selected);
-  }, []);
+  }, [playList]);
 
   return (
     <div className="music-space">
@@ -72,10 +77,10 @@ function PlayList(props) {
 
         <div className="play-list">
           {
-            playList.length > 0 ? playList.map((m, idx) => (
+            playList?.length > 0 ? playList.map((m) => (
               <div className="play-item" key={m.name}>
               <button className="play-block" onClick={onHandleSelectedMusic(m.id)}>
-                <span className="index text-strong">{idx + 1}</span>
+                <span className="index text-strong">{m.id}</span>
   
                 <img
                   src={m.cover}
