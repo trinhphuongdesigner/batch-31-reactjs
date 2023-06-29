@@ -10,7 +10,7 @@ function App() {
   const [title] = useState('Đây là trang APP nè');
 
   return (
-    <div className="App">
+    <div className="container-fluid h-full d-flex">
       <Register />
     </div>
   );

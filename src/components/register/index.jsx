@@ -40,11 +40,11 @@ function Register(props) {
 
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(6, 'Mininum 6 characters')
-        .max(12, 'Maximum 12 characters')
+        .min(2, 'Mininum 2 characters')
+        .max(50, 'Maximum 50 characters')
         .required('Name Required!'),
       password: Yup.string()
-        .min(8, 'Minimum 8 characters')
+        .min(6, 'Minimum 6 characters')
         .required('Password Required!'),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password')], "Password's not match")
@@ -67,7 +67,7 @@ function Register(props) {
     },
   });
 
-  const getButtonContent = useMemo(() => {
+  const buttonContent = useMemo(() => {
     switch (currentStep) {
       case REGISTER_STEP.EMAIL_STEP:
         return 'Continue';
@@ -248,7 +248,7 @@ function Register(props) {
             {/* {
                 currentStep === REGISTER_STEP.EMAIL_STEP ? 'Continue' : '| Agree and continue'
               } */}
-            {getButtonContent}
+            {buttonContent}
           </button>
         )}
 
