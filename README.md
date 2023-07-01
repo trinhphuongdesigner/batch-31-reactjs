@@ -50,3 +50,12 @@ lazy loading
 code spliting
 
 regular expression
+
+
+Đăng nhập bằng các account
+nv01@gmail.com
+nv02@gmail.com
+nv03@gmail.com
+nv04@gmail.com
+
+password 123456
