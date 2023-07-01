@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+
 import Button from '../buttonGroup/button';
 
 // function ImageSlider({ imageList }) {
@@ -11,29 +13,34 @@ function ImageSlider2(props) {
   const [index, setIndex] = useState(0);
 
   const onNextImage = () => {
-    if (index + 1  < imageList.length) {
-      setIndex(index + 1)
+    if (index + 1 < imageList.length) {
+      setIndex(index + 1);
     } else {
-      setIndex(0)
+      setIndex(0);
     }
-  }
+  };
 
   const onPreviousImage = () => {
-    if (index - 1  >= 0) {
-      setIndex(index - 1)
+    if (index - 1 >= 0) {
+      setIndex(index - 1);
     } else {
-      setIndex(imageList.length - 1)
+      setIndex(imageList.length - 1);
     }
-  }
+  };
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/photos')
-    .then(response => response.json())
-    .then(json => setImageList(json))
+      .then((response) => response.json())
+      .then((json) => setImageList(json));
   }, []);
 
   return (
     <div>
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        <p>
+          <Skeleton count={3} />
+        </p>
+      </SkeletonTheme>
       <img
         style={{
           width: '600px',
@@ -46,14 +53,18 @@ function ImageSlider2(props) {
         alt="anh xem cho vui"
       />
 
-      <h5>{index + 1}/{imageList.length}</h5>
+      <h5>
+        {index + 1}/{imageList.length}
+      </h5>
 
-      <div style={{
-        display: 'flex'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
         <Button
           style={{
-            marginRight: "20px"
+            marginRight: '20px',
           }}
           icon={<i className="fa-solid fa-chevron-left fa-xl" />}
           title="Previous"

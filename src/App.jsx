@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Skeleton from 'react-loading-skeleton'
 
 // import Music from 'components/music';
 import AppleIcon from 'components/icons/apple';
@@ -20,7 +20,10 @@ import Tabs from 'components/tabs';
 
 import imageList from 'fakeData/image.json';
 
+import 'react-loading-skeleton/dist/skeleton.css'
 import './App.css';
+import { axiosClient, axiosAdmin } from 'helper/axiosClient';
+import axios from 'axios';
 
 function App() {
   const [title] = useState('Đây là trang APP nè');
@@ -43,12 +46,10 @@ function App() {
       email: 'nv03@gmail.com',
       password: '123456',
     };
-  
-    const url = 'https://batch-293-0-nodejs.onrender.com/admin/employees/login';
-  
+
     try {
       // Promise
-      const response = await axios.post(url, data);
+      const response = await axiosClient.post("/employees/login", data);
       console.log(response.data);
     } catch (err) {
       console.error(err);
