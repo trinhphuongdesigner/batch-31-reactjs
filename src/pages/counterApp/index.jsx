@@ -6,7 +6,7 @@ import IncreaseCounterButton from 'components/counter/IncreaseCounterButton';
 
 function CounterApp() {
   return (
-    <div>
+    <div className="container-xl d-flex flex-column align-items-center py-4">
       <DecreaseCounterButton />
       <CounterLabel />
       <IncreaseCounterButton />

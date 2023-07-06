@@ -8,6 +8,7 @@ function IncreaseCounterButton() {
 
   return (
     <button
+      className="btn btn-primary"
       onClick={() => {
         dispatch(increaseCountAction(1));
       }}

@@ -8,6 +8,7 @@ function DecreaseCounterButton() {
 
   return (
     <button
+      className="btn btn-secondary"
       onClick={() => {
         dispatch(decreaseCountAction(1));
       }}

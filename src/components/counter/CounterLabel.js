@@ -5,7 +5,7 @@ function CounterLabel() {
   const count = useSelector((state) => state.counterReducer.count); // count = thịt
 
   return (
-    <div>
+    <div className="py-4">
       <h2>{count}</h2>
     </div>
   );
