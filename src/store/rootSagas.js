@@ -1,8 +1,8 @@
 import { all, fork } from 'redux-saga/effects';
-// import TemplateSaga from 'store/column/saga';
+import ProfileSaga from 'store/profile/saga';
 
 export default function* rootSaga() {
   yield all([
-    // fork(TemplateSaga),
+    fork(ProfileSaga),
   ]);
 }

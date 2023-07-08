@@ -12,6 +12,7 @@ import Template from 'pages/template';
 import NotFoundPage from 'pages/404';
 import CounterApp from 'pages/counterApp';
 import TodoApp from 'pages/todoApp';
+import Profile from 'pages/profile';
 
 const LOCATIONS = {
   HOME_PAGE: '/',
@@ -23,6 +24,7 @@ const LOCATIONS = {
   TEMPLATE: 'template',
   COUNTER: 'counter',
   TODO: 'todo',
+  MY_PROFILE: 'my-profile',
 }
 
 const routers = [
@@ -35,8 +37,8 @@ const routers = [
       { path: LOCATIONS.FORM, element: <FormPage /> },
       { path: LOCATIONS.TAB, element: <TabPage /> },
       { path: LOCATIONS.SLIDE, element: <SliderPage /> },
-      { path: LOCATIONS.PRODUCTS, element: <ProductsPage /> 
-    },
+      { path: LOCATIONS.PRODUCTS, element: <ProductsPage /> },
+      { path: LOCATIONS.MY_PROFILE, element: <Profile /> },
     ]
   },
   { path: LOCATIONS.TEMPLATE, element: <Template /> },

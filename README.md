@@ -60,6 +60,11 @@ nv04@gmail.com
 
 password 123456
 
+https://codepen.io/its_abhay/pen/abQpKGa
+https://jsonplaceholder.typicode.com/users/1
+https://transform.tools/html-to-jsx
+https://getbootstrap.com/docs/4.3/components/spinners/
+
 Trong Redux Saga, `yield all`, `fork`, `takeLeading` và `takeEvery` là những effect và công cụ quan trọng để quản lý quá trình xử lý các action trong ứng dụng. Dưới đây là giải thích về mỗi khái niệm:
 
 1. `yield all`: `yield all` là một effect trong Redux Saga, được sử dụng để chạy đồng thời một mảng các effect. Nó giúp bạn chạy nhiều effect cùng một lúc mà không chờ đợi từng effect hoàn thành trước khi chạy effect tiếp theo.
