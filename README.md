@@ -59,3 +59,57 @@ nv03@gmail.com
 nv04@gmail.com
 
 password 123456
+
+Trong Redux Saga, `yield all`, `fork`, `takeLeading` và `takeEvery` là những effect và công cụ quan trọng để quản lý quá trình xử lý các action trong ứng dụng. Dưới đây là giải thích về mỗi khái niệm:
+
+1. `yield all`: `yield all` là một effect trong Redux Saga, được sử dụng để chạy đồng thời một mảng các effect. Nó giúp bạn chạy nhiều effect cùng một lúc mà không chờ đợi từng effect hoàn thành trước khi chạy effect tiếp theo.
+
+```javascript
+import { all, call } from 'redux-saga/effects';
+
+function* mainSaga() {
+  yield all([
+    call(saga1),
+    call(saga2),
+    call(saga3),
+  ]);
+}
+```
+
+2. `fork`: `fork` là một effect trong Redux Saga, được sử dụng để tạo một "tác tử" (task) mới để chạy một saga riêng biệt. Nó cho phép các saga chạy đồng thời và độc lập với nhau.
+
+```javascript
+import { fork } from 'redux-saga/effects';
+
+function* mainSaga() {
+  yield fork(saga1);
+  yield fork(saga2);
+  yield fork(saga3);
+}
+```
+
+3. `takeLeading`: `takeLeading` là một helper trong Redux Saga, được sử dụng để theo dõi một action và chỉ chạy saga liên quan đến action đầu tiên mà nó gặp.
+
+```javascript
+import { takeLeading } from 'redux-saga/effects';
+
+function* mainSaga() {
+  yield takeLeading('FETCH_DATA', fetchDataSaga);
+}
+```
+
+Trong ví dụ trên, `fetchDataSaga` chỉ được chạy khi action `'FETCH_DATA'` đầu tiên xuất hiện. Nếu có các action `'FETCH_DATA'` khác được gọi trong khi `fetchDataSaga` đang chạy, chúng sẽ bị bỏ qua.
+
+4. `takeEvery`: `takeEvery` là một helper trong Redux Saga, được sử dụng để theo dõi một action và chạy saga liên quan mỗi khi action đó được gọi.
+
+```javascript
+import { takeEvery } from 'redux-saga/effects';
+
+function* mainSaga() {
+  yield takeEvery('FETCH_DATA', fetchDataSaga);
+}
+```
+
+Trong ví dụ trên, mỗi khi có một action `'FETCH_DATA'` được gọi, `fetchDataSaga` sẽ được chạy. Không quan trọng liệu `fetchDataSaga` có đang chạy hay không, nó sẽ được gọi mỗi khi có một action phù hợp.
+
+Các công cụ và effect trên giúp bạn xử lý luồng logic phức tạp trong Redux Saga. Bằng cách kết hợp chúng, bạn có thể quản lý quá trình xử lý các action, tạo các tác tử độc lập, và điều khiển luồng thực thi của các saga.
