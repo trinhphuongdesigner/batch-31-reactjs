@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-// import { LOCATIONS } from 'constants/index';
+import { LOCATIONS } from 'constants/index';
+
 import ParentComponent from 'components/example/useCallback';
 import Layout from 'components/layout';
 import FormPage from 'pages/form';
@@ -13,19 +14,6 @@ import NotFoundPage from 'pages/404';
 import CounterApp from 'pages/counterApp';
 import TodoApp from 'pages/todoApp';
 import Profile from 'pages/profile';
-
-const LOCATIONS = {
-  HOME_PAGE: '/',
-  PLAY_LIST: 'play-list',
-  FORM: 'form',
-  TAB: 'tabs',
-  SLIDE: 'slider',
-  PRODUCTS: 'products',
-  TEMPLATE: 'template',
-  COUNTER: 'counter',
-  TODO: 'todo',
-  MY_PROFILE: 'my-profile',
-}
 
 const routers = [
   {
