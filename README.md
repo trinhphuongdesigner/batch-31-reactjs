@@ -65,6 +65,15 @@ https://jsonplaceholder.typicode.com/users/1
 https://transform.tools/html-to-jsx
 https://getbootstrap.com/docs/4.3/components/spinners/
 
+1. Login thành công => token + refresh token
+2. Lưu token + refresh token (để khi có request gửi lên server không cần đăng nhập mật khẩu
+nếu token hết hạn sẽ dùng refresh token để tạo một token mới) vào local storage
+3. trong App.js kiểm tra có token chưa bằng cách localStogare.getItem("name")
+nếu có => đã login => gọi api lấy thông tin user (getMyProfile)
+nếu không => chưa login => yêu cầu đăng nhập
+
+
+
 Trong Redux Saga, `yield all`, `fork`, `takeLeading` và `takeEvery` là những effect và công cụ quan trọng để quản lý quá trình xử lý các action trong ứng dụng. Dưới đây là giải thích về mỗi khái niệm:
 
 1. `yield all`: `yield all` là một effect trong Redux Saga, được sử dụng để chạy đồng thời một mảng các effect. Nó giúp bạn chạy nhiều effect cùng một lúc mà không chờ đợi từng effect hoàn thành trước khi chạy effect tiếp theo.
