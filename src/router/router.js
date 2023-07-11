@@ -16,6 +16,8 @@ import CounterApp from 'pages/counterApp';
 import TodoApp from 'pages/todoApp';
 import Profile from 'pages/profile';
 import AntdHomePage from 'pages/antd/homePage';
+import ProductsPage2 from 'pages/productsPage';
+import ProductsDetail from 'pages/productsPage/detail';
 
 const routers = [
   {
@@ -44,6 +46,8 @@ const routers = [
   { path: LOCATIONS.TEMPLATE, name: "Template", element: <Template /> },
   { path: LOCATIONS.COUNTER, name: "Counter", element: <CounterApp /> },
   { path: LOCATIONS.TODO, name: "Todo", element: <TodoApp /> },
+  { path: LOCATIONS.PRODUCTS_PAGE, name: "Products", element: <ProductsPage2 /> },
+  { path: LOCATIONS.PRODUCTS_DETAIL_PAGE, name: "Products Detail", element: <ProductsDetail /> },
   { path: "*", element: <NotFoundPage /> },
 ];
 

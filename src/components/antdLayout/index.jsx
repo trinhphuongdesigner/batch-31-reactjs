@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Layout, Menu, theme } from 'antd';
 import {
   FileOutlined,
@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons';
 
 import './layout.css';
+import { LOCATIONS } from 'constants/index';
 
 const { Header, Footer, Sider } = Layout;
 
@@ -27,21 +28,26 @@ export default function AntdLayout(props) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const navigate = useNavigate();
 
   const items = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-      getItem('Tom', '3'),
-      getItem('Bill', '4'),
-      getItem('Alex', '5'),
+    getItem('Template', LOCATIONS.TEMPLATE, <PieChartOutlined />),
+    getItem('Counter', LOCATIONS.COUNTER, <DesktopOutlined />),
+    getItem('Todo', LOCATIONS.TODO, <PieChartOutlined />),
+    getItem('Layout', LOCATIONS.HOME_PAGE, <UserOutlined />, [
+      getItem('Play List', LOCATIONS.PLAY_LIST),
+      getItem('Form Register', LOCATIONS.FORM),
     ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [
-      getItem('Team 1', '6'),
-      getItem('Team 2', '8'),
-    ]),
-    getItem('Files', '9', <FileOutlined />),
+    // getItem('Team', 'sub2', <TeamOutlined />, [
+    //   getItem('Team 1', '6'),
+    //   getItem('Team 2', '8'),
+    // ]),
+    // getItem('Files', '9', <FileOutlined />),
   ];
+
+  const onClick = ({ key }) => {
+    return navigate(`/${key}`);
+  };
 
   return (
     <>
@@ -52,7 +58,7 @@ export default function AntdLayout(props) {
     >
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu theme="dark" defaultSelectedKeys={[LOCATIONS.HOME_PAGE]} mode="inline" items={items} onClick={onClick} />
       </Sider>
       <Layout>
         <Header
