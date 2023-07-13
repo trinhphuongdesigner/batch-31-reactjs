@@ -128,6 +128,11 @@ Trong ví dụ trên, mỗi khi có một action `'FETCH_DATA'` được gọi, 
 
 Các công cụ và effect trên giúp bạn xử lý luồng logic phức tạp trong Redux Saga. Bằng cách kết hợp chúng, bạn có thể quản lý quá trình xử lý các action, tạo các tác tử độc lập, và điều khiển luồng thực thi của các saga.
 
+
+
+
+
+
 *Bài thu hoạch*
 1. Sử dụng API được cung cấp "https://batch-293-0-nodejs.onrender.com/admin".
 2. Tạo trang đăng nhập và danh sách sản phẩm.
