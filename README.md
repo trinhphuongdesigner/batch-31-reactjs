@@ -127,3 +127,10 @@ function* mainSaga() {
 Trong ví dụ trên, mỗi khi có một action `'FETCH_DATA'` được gọi, `fetchDataSaga` sẽ được chạy. Không quan trọng liệu `fetchDataSaga` có đang chạy hay không, nó sẽ được gọi mỗi khi có một action phù hợp.
 
 Các công cụ và effect trên giúp bạn xử lý luồng logic phức tạp trong Redux Saga. Bằng cách kết hợp chúng, bạn có thể quản lý quá trình xử lý các action, tạo các tác tử độc lập, và điều khiển luồng thực thi của các saga.
+
+*Bài thu hoạch*
+1. Sử dụng API được cung cấp "https://batch-293-0-nodejs.onrender.com/admin".
+2. Tạo trang đăng nhập và danh sách sản phẩm.
+3. Khi đăng nhập thành công theo API được cùng cấp => điều hướng đến trang danh sách sản phẩm.
+4. Khi đã đằng nhập, không thể vào trang đăng nhập lại.
+5. Khi chưa đăng nhập, truy cập bất cứ đường dẫn nào đều điều hướng về trang đăng nhập.
