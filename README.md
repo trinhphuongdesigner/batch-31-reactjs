@@ -133,9 +133,10 @@ Các công cụ và effect trên giúp bạn xử lý luồng logic phức tạp
 
 
 
-*Bài thu hoạch*
-1. Sử dụng API được cung cấp "https://batch-293-0-nodejs.onrender.com/admin".
-2. Tạo trang đăng nhập và danh sách sản phẩm.
-3. Khi đăng nhập thành công theo API được cùng cấp => điều hướng đến trang danh sách sản phẩm.
-4. Khi đã đằng nhập, không thể vào trang đăng nhập lại.
-5. Khi chưa đăng nhập, truy cập bất cứ đường dẫn nào đều điều hướng về trang đăng nhập.
+*Bài thu hoạch* (Chi tiết trong video bài học cuối cùng)
+1. Đưa cả tài nguyên sử dụng lên github
+2. Sử dụng API được cung cấp "https://batch-293-0-nodejs.onrender.com/admin".
+3. Tạo trang đăng nhập và danh sách sản phẩm.
+4. Khi đăng nhập thành công theo API được cùng cấp => điều hướng đến trang danh sách sản phẩm.
+5. Khi đã đằng nhập, không thể vào trang đăng nhập lại.
+6. Khi chưa đăng nhập, truy cập bất cứ đường dẫn nào đều điều hướng về trang đăng nhập.
